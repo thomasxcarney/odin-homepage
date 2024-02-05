@@ -2,6 +2,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    --light-green: rgb(153, 255, 221);
 }
 .container {
     width:100%;
@@ -26,14 +27,18 @@ h2 {
     font-family: "Cormorant Garamond";
 }
 
+#bio-container {
+    background:linear-gradient(160deg, var(--light-green), var(--light-green) 60%, white 60%, white);
+}
+
 #about-me-icon-container {
     margin-top: 10px;
 }
 
 #project-cards-container {
     display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) ) ;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) );
 }
 
 .project-card {
@@ -74,9 +79,76 @@ h2 {
 }
 
 #contact-container {
-    background-color: rgb(153, 255, 221);
+    background-color: var(--light-green);
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) );
+    padding: 20px;
 }
 
-#contact-blurb, #contact-address {
+#contact-blurb, #contact-address, #contact-email, #contact-icons-container {
     margin-bottom: 20px;
+}
+
+#contact-icons-container {
+    text-align: center;
+    font-size: x-large;
+}
+
+@media (min-width: 400px) {
+    .container {
+        max-width: 1024px;
+    }
+    #bio-image {
+        max-height: 400px;
+        width: auto;
+        z-index: 0;
+        position: relative;
+        grid-row: 1 / 3;
+        grid-column: 1;
+    }
+    #about-me-container {
+        box-shadow: 0px 0px 10px rgb(172, 172, 172);
+        background-color: white;
+        margin: 45px 45px 0px 100px;
+        padding: 20px;
+        z-index: 1;
+        position: relative;
+        grid-row: 2/4;
+        grid-column: 1/3;
+    }
+    #name {
+        z-index: 1;
+        position: relative;
+        grid-column: 2;
+        justify-self: center;
+        align-self: center;
+    }
+    #bio-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 30% 30% 20%;
+        margin: 20px;
+    }
+}
+
+@media (min-width: 940px) {
+    .container {
+        max-width: 100%;
+    }
+    #project-cards-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    #contact-container{
+        grid-template-columns: 1fr 1fr;
+    }
+    #contact-image {
+        max-height: 400px;
+        width: auto;
+        justify-self: center;
+    }
+    #bio-image {
+        max-width:50%;
+        height: auto;
+    }
 }
